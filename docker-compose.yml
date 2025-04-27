@@ -1,0 +1,11 @@
+services:
+  url_short:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - gems:/usr/local/bundle
+      - .:/url_short
+
+volumes:
+  gems:
