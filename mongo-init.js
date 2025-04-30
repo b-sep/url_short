@@ -1,6 +1,6 @@
 db.createUser({
-  user: 'nodz',
-  password: 'nodz',
+  user: 'mongo',
+  pwd: 'mongo',
   roles: [{
     role: 'readWrite',
     db: 'url_short_development'
@@ -10,8 +10,8 @@ db.createUser({
 testDb = db.getSiblingDB('url_short_test')
 
 testDb.createUser({
-  user: 'nodz',
-  password: 'nodz',
+  user: 'mongo',
+  pwd: 'mongo',
   roles: [{
     role: 'readWrite',
     db: 'url_short_test'

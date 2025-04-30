@@ -1,23 +1,23 @@
 services:
-  mongodb:
-    container_name: url_short_mongo
-    env_file:
-      - .env.example
+  db:
+    container_name: url_short_mongodb
+    env_file: .env.example
     image: mongo
     ports:
       - '27017:27017'
     volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
       - mongodb:/data/db
-      - ./mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   url_short:
     container_name: url_short
     depends_on:
-      - mongodb
+      - db
     build:
       context: .
       dockerfile: Dockerfile.dev
-    env_file:
-      - .env.example
+    env_file: .env.example
+    ports:
+      - '3000:3000'
     volumes:
       - gems:/usr/local/bundle
       - .:/url_short
