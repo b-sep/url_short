@@ -1,0 +1,7 @@
+<section class="main-section">
+  <%= form_with model: @short_url do |form| %>
+    <%= form.url_field :original_url, placeholder: 'http://www.example.com', required: true %>
+
+    <%= form.submit 'encurtar url' %>
+  <% end %>
+</section>
