@@ -2,8 +2,9 @@
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
-require 'rails/test_help'
 require 'database_cleaner/mongoid'
+require 'minitest/mock'
+require 'rails/test_help'
 
 DatabaseCleaner.strategy = :deletion
 
@@ -17,3 +18,5 @@ module ActiveSupport
     def teardown = DatabaseCleaner.clean
   end
 end
+
+require 'mocha/minitest'

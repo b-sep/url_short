@@ -2,6 +2,6 @@
 
 class HomeController < ApplicationController # rubocop:disable Style/Documentation
   def main
-    @short_url = ShortUrl.new
+    @url = Url.new
   end
 end

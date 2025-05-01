@@ -44,4 +44,5 @@ end
 
 group :test do
   gem 'database_cleaner-mongoid', '~> 2.0'
+  gem 'mocha', '~> 2.7'
 end
