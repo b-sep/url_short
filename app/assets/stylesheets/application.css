@@ -28,8 +28,8 @@ body {
   form input[type="url"] {
     border: 2px solid #ddd;
     font-size: 1rem;
-    transition: border-color 0.3s;
     min-width: 40%;
+    transition: border-color 0.3s;
   }
 
   form input[type="url"]:focus {

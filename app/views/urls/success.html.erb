@@ -1,1 +1,10 @@
-<h1><%= url.short %></h1>
+<% content_for(:head) do %>
+  <%= stylesheet_link_tag :success, "data-turbo-track": "reload" %>
+<% end %>
+
+<section class="success-section" data-controller="success">
+  <h1>Sua URL encurtada</h1>
+
+  <%= url_field_tag '', @url.short, 'data-success-target' => 'shortUrl', readonly: true %>
+  <%= button_tag 'copiar', type: 'button', 'data-action': 'click->success#copy' %>
+</section>

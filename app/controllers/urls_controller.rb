@@ -6,8 +6,12 @@ class UrlsController < ApplicationController # rubocop:disable Style/Documentati
 
     case result.success?
     in true  then redirect_to(success_url(result.url))
-    in false then redirect_to(root_url, alert: 'Something went wrong')
+    in false then redirect_to(root_url, alert: 'Algo deu errado')
     end
+  end
+
+  def success
+    @url = Url.find(params[:id])
   end
 
   private

@@ -1,0 +1,35 @@
+.success-section {
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  button, input {
+    border-radius:  5px;
+    padding: 1rem;
+  }
+
+  input[type="url"] {
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    min-width: 40%;
+    transition: border-color 0.3s;
+  }
+
+  button {
+    background-color: #3a7;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    min-width: 10%;
+  }
+
+  button:hover {
+    background-color: #4ba;
+    cursor: pointer;
+  }
+}
