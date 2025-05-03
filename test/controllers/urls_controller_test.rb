@@ -47,6 +47,21 @@ class UrlsControllerTest < ActionDispatch::IntegrationTest
     assert_match(/copiar/, response.body.encode)
   end
 
+  test 'GET /redirect redirects to root url if url does not exists' do
+    get redirect_url('invalid')
+
+    assert_redirected_to(root_url)
+  end
+
+  test 'GET /redirect updates the url accesses and redirects to target' do
+    url = Url.create!(target: 'https://www.google.com', slug: '3aa2', short: 'http://0.0.0.0/urls/3aa2', accesses: 0)
+
+    get redirect_url(slug: url.slug)
+
+    assert_equal(1, url.reload.accesses)
+    assert_redirected_to(url.target)
+  end
+
   private
 
   def build_result(res)

@@ -14,6 +14,17 @@ class UrlsController < ApplicationController # rubocop:disable Style/Documentati
     @url = Url.find(params[:id])
   end
 
+  def redirect
+    @url = Url.find_by(slug: params[:slug])
+
+    @url or (redirect_to root_url and return)
+
+    @url.accesses += 1
+    @url.save
+
+    redirect_to @url.target, allow_other_host: true
+  end
+
   private
 
   def url_params

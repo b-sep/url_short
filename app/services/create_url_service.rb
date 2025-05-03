@@ -25,7 +25,7 @@ class CreateUrlService # rubocop:disable Style/Documentation
 
   def generate_short
     "#{Rails.application.default_url_options[:protocol]}://" \
-      "#{Rails.application.default_url_options[:host]}/urls/#{generate_slug}"
+      "#{Rails.application.default_url_options[:host]}:3000/urls/#{generate_slug}"
   end
 
   def result(url:, success:) = Result.new(url:, success?: success)
